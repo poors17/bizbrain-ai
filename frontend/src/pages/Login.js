@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import BASE_URL from "../api";
 
 import { motion } from "framer-motion";
 import Particles from "@tsparticles/react";
@@ -51,7 +52,7 @@ const handleLogin = async (e) => {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      `${BASE_URL}/api/auth/login`,
       { email, password }
     );
 
@@ -86,7 +87,7 @@ const handleReset = async (e) => {
   try {
 
     const res = await axios.post(
-      "http://localhost:5000/api/auth/reset-password",
+      `${BASE_URL}/api/auth/reset-password`,
       {
         email: resetEmail,
         currentPassword,

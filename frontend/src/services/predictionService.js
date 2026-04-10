@@ -1,4 +1,5 @@
 import axios from "axios";
+import BASE_URL from "../api";
 
 export const runPrediction = (file) => {
   const storedData = JSON.parse(localStorage.getItem("user"));
@@ -8,7 +9,7 @@ export const runPrediction = (file) => {
   formData.append("file", file);
 
   return axios.post(
-    "http://localhost:5000/api/prediction",
+    `${BASE_URL}/api/prediction`,
     formData,
     {
       headers: {

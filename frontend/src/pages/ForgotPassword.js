@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import BASE_URL from "../api";
 
 const ForgotPassword = () => {
 
@@ -13,7 +14,7 @@ const ForgotPassword = () => {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/reset-password",
+        `${BASE_URL}/api/auth/reset-password`,
         { email, currentPassword, newPassword }
       );
 

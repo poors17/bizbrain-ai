@@ -4,6 +4,7 @@ import { FaUser, FaEnvelope, FaLock, FaUserShield } from "react-icons/fa";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import BASE_URL from "../api";
 
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -32,7 +33,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${BASE_URL}/api/auth/register`,
         form
       );
       setMessage(res.data.message || "Account created successfully");

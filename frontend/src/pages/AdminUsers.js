@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "../components/Layout";
+import BASE_URL from "../api";
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -31,7 +32,7 @@ const handleBulkDelete = async () => {
 
   await Promise.all(
     selectedUsers.map(id =>
-      axios.delete(`http://localhost:5000/api/admin/users/${id}`, {
+      axios.delete(`${BASE_URL}/api/admin/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
     )
@@ -44,9 +45,8 @@ const handleBulkDelete = async () => {
 const handleBulkBlock = async () => {
 
   await Promise.all(
-    selectedUsers.map(id =>
-      axios.put(
-        `http://localhost:5000/api/admin/users/${id}/status`,
+    selectedUsers.map(id =>axios.put(
+      `${BASE_URL}/api/admin/users/${id}/status`,
         { status: "BLOCKED" },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -79,10 +79,9 @@ const handleBulkBlock = async () => {
   };
 
   const fetchUsers = useCallback(async () => {
-    const res = await axios.get(
-      "http://localhost:5000/api/admin/users",
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    const res = await axios.get(`${BASE_URL}/api/admin/users`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
     setUsers(res.data);
   }, [token]);
 
@@ -93,19 +92,17 @@ const handleBulkBlock = async () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this user?")) return;
 
-    await axios.delete(
-      `http://localhost:5000/api/admin/users/${id}`,
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    await axios.delete(`${BASE_URL}/api/admin/users/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
 
     setUsers(users.filter((u) => u._id !== id));
   };
 
   const handleBlock = async (id, status) => {
     const newStatus = status === "BLOCKED" ? "ACTIVE" : "BLOCKED";
-
     const res = await axios.put(
-      `http://localhost:5000/api/admin/users/${id}/status`,
+      `${BASE_URL}/api/admin/users/${id}/status`,
       { status: newStatus },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -120,7 +117,7 @@ const handleBulkBlock = async () => {
   const handleApprove = async (id) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/admin/users/${id}/status`,
+        `${BASE_URL}/api/admin/users/${id}/status`,
         { status: "ACTIVE" },
         { headers: { Authorization: `Bearer ${token}` } }
       );

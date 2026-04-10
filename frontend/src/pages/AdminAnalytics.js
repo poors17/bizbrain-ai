@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
-
+import BASE_URL from "../api";
 import Layout from "../components/Layout";
 import axios from "axios";
 import {
@@ -81,7 +81,7 @@ const retentionRate =
       const token = user?.token;
   
       const res = await axios.get(
-        `http://localhost:5000/api/admin/analytics?days=${d}`,
+        `${BASE_URL}/api/admin/analytics?days=${d}`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -109,7 +109,7 @@ useEffect(() => {
       const token = user?.token;
 
       const res = await axios.get(
-        "http://localhost:5000/api/system-config",
+        `${BASE_URL}/api/system-config`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }

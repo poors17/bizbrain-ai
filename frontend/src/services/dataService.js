@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/data";
+const API_URL = "https://bizbrain-ai-production.up.railway.app/api/data";
 
 export const uploadBusinessData = async (file) => {
   // 🔥 Get token from user object

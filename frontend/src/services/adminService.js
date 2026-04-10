@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/admin";
+const API = "https://bizbrain-ai-production.up.railway.app/api/admin";
 
 const getToken = () => {
   const user = JSON.parse(localStorage.getItem("user"));

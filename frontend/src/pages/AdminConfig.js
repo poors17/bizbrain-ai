@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Layout from "../components/Layout";
-
+import BASE_URL from "../api";
 const AdminConfig = () => {
 
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -27,7 +27,7 @@ const AdminConfig = () => {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/system-config")
+    axios.get(`${BASE_URL}/api/system-config`)
       .then(res => {
         if (res.data) setConfig(res.data);
       })
@@ -36,7 +36,7 @@ const AdminConfig = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put("http://localhost:5000/api/system-config", config);
+      await axios.put(`${BASE_URL}/api/system-config`, config);
       alert("Settings Saved Successfully");
     } catch (err) {
       console.log(err);
