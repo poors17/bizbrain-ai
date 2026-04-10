@@ -27,7 +27,7 @@ app.use("/api/system-config", require("./routes/systemConfig")); // ✅ ADDED
 
 /* ================= BASE ROUTE ================= */
 app.get("/", (req, res) => {
-  res.send("BizBrain Backend Running 🚀");
+  res.status(200).send("BizBrain Backend Running 🚀");
 });
 
 /* ================= SERVER ================= */
