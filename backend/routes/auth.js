@@ -10,7 +10,7 @@ const ActivityLog = require("../models/ActivityLog");
 /* ============ REGISTER ============ */
 router.post("/register", async (req, res) => {
 
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   try {
 
@@ -42,7 +42,7 @@ router.post("/register", async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role: "USER",
+      role: role || "USER",
       status: config?.userApprovalRequired ? "PENDING" : "ACTIVE"
     });
 
