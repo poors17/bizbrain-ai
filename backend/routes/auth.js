@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
 
     const config = await SystemConfig.findOne() || {};
 
-    if (config && !config.allowRegistration) {
+    if (config && config.allowRegistration === false) {
       return res.status(403).json({
         message: "Registration is closed"
       });
