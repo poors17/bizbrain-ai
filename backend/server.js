@@ -23,7 +23,7 @@ app.use("/api/data", require("./routes/data"));
 app.use("/api/prediction", require("./routes/prediction"));
 app.use("/api/admin", require("./routes/admin"));
 app.use("/api/reports", require("./routes/reports"));
-app.use("/api/system-config", require("./routes/systemConfig")); // ✅ ADDED
+app.use("/api/system-config", require("./routes/systemConfig"));
 
 /* ================= BASE ROUTE ================= */
 app.get("/", (req, res) => {
@@ -31,8 +31,15 @@ app.get("/", (req, res) => {
 });
 
 /* ================= SERVER ================= */
-const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
+// ✅ IMPORTANT: Railway requires dynamic PORT
+const PORT = process.env.PORT;
+
+if (!PORT) {
+  console.error("❌ PORT not found! Railway requires a PORT.");
+  process.exit(1);
+}
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
