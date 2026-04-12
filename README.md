@@ -1,193 +1,142 @@
 # 🚀 BizBrain AI – Business Analytics & Prediction Platform
 
-## 🌐 Live Demo
+## 📌 Description
 
-* 🔗 Frontend: https://endearing-semolina-15773b.netlify.app
-* ⚙ Backend API: https://bizbrain-ai-production.up.railway.app
+BizBrain AI is a full-stack MERN application that enables users to upload business datasets, analyze data, and generate intelligent predictions. The platform provides an interactive dashboard for visualizing analytics and insights.
 
----
-
-## 📌 Project Overview
-
-**BizBrain AI** is a full-stack MERN application that enables businesses to analyze raw data and generate intelligent predictions using custom-built algorithms.
-
-The system provides:
-
-* 📊 Data-driven insights
-* 🤖 AI-based predictions
-* 🔐 Secure authentication
-* 🛠 Role-based admin control
+It includes secure authentication and role-based access control, where users can upload and analyze data, while admins can manage users, monitor system activity, and view advanced analytics.
 
 ---
 
-## 🏗 Tech Stack
+## 🛠️ Tech Stack
 
-### 💻 Frontend
+* **Frontend:** React.js, Tailwind CSS, Framer Motion
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (MongoDB Atlas)
+* **Authentication:** JWT (JSON Web Tokens)
+* **Deployment:**
 
-* React.js
-* Tailwind CSS
-* Framer Motion
-* Axios
-
-### ⚙ Backend
-
-* Node.js
-* Express.js
-* MongoDB Atlas
-* Mongoose
-
-### 🚀 Deployment
-
-* Frontend → Netlify
-* Backend → Railway
+  * Frontend → Netlify
+  * Backend → Render
 
 ---
 
-## 🔑 Features
+## 🚀 Features
 
-### 👤 User Module
+### 🔐 Authentication & Security
 
-* Register & Login
-* Upload business data (CSV/Excel)
-* Run AI predictions
-* View reports & insights
-
----
-
-### 🤖 AI Prediction System
-
-The system uses multiple custom algorithms:
-
-* Recent Weighted Pattern
-* Insight Weighted Prediction Adjustment
-* Trend Momentum Shift Analysis
-* Risk Adjusted Performance Analysis
-
-✔ Automatically selects best-performing algorithm
-✔ Displays profit prediction & confidence score
-
----
-
-### 🛠 Admin Module
-
-* 👥 User Management
-
-  * View users
-  * Block / Delete users
-  * Approve accounts
-
-* 📊 Analytics Dashboard
-
-* ⚙ System Configuration
-
-  * Enable/disable registration
-  * Control login attempts
-  * Toggle features
-
-* 🔐 Security System
-
-  * Account lock after failed attempts
-  * Activity logs
-
----
-
-## 🔐 Authentication & Security
-
+* User Registration & Login
 * JWT-based authentication
 * Role-based access (Admin / User)
+* Account lock mechanism after failed attempts
 * Password reset functionality
-* Account lock mechanism
+
+---
+
+### 📊 Data Upload & Processing
+
+* Upload business datasets (CSV / Excel)
+* Secure file handling using Multer
+* Backend processing for analytics
+
+---
+
+### 🤖 Prediction Module
+
+* Generate predictions based on uploaded data
+* Integrated prediction API
+* Supports intelligent data analysis
+
+---
+
+### 📈 Analytics Dashboard
+
+* User growth charts
+* Daily activity tracking
+* Role distribution (Admin vs User)
+* System monitoring insights
+
+---
+
+### 👨‍💼 Admin Panel
+
+* View and manage users
+* Activate / deactivate users
+* Monitor system usage
+* Access analytics data
+
+---
+
+### 📄 Reports
+
+* Generate and download reports
+* Track system and user activities
+
+---
+
+## 🌐 Live Demo
+
+* 🔗 **Frontend:** https://endearing-semolina-15773b.netlify.app
+* 🔗 **Backend:** https://bizbrain-ai.onrender.com
+
+> ⚠️ Note: Backend may take 30–60 seconds to load initially due to Render free-tier auto-sleep.
 
 ---
 
 ## 📂 Project Structure
 
-```bash
 bizbrain-ai/
 │
-├── backend/
-│   ├── controllers/
-│   ├── routes/
-│   ├── models/
-│   └── config/
-│
-├── frontend/
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-```
+├── frontend/   # React frontend
+├── backend/    # Node.js backend
 
 ---
 
-## ⚙️ Setup Instructions
+## ⚙️ Installation & Setup
 
-### 🔧 Backend
+### 1️⃣ Clone the repository
 
-```bash
+git clone https://github.com/poors17/bizbrain-ai.git
+cd bizbrain-ai
+
+---
+
+### 2️⃣ Backend Setup
+
 cd backend
 npm install
 npm start
-```
 
-### 🔧 Frontend
+---
 
-```bash
+### 3️⃣ Frontend Setup
+
 cd frontend
 npm install
 npm start
-```
 
 ---
 
 ## 🔐 Environment Variables
 
-Create `.env` in backend:
+Create a `.env` file inside backend:
 
-```env
-MONGO_URI=your_mongodb_connection
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
-PORT=5000
-```
 
 ---
 
-## 💡 Key Highlights
+## 🎯 Future Enhancements
 
-* Full-stack MERN application
-* Real-time AI prediction system
-* Role-based authentication
-* Secure REST API integration
-* Deployed on cloud (Netlify + Railway)
-
----
-
-## 🚀 Future Enhancements
-
-* Advanced ML model integration
-* Email notifications
-* Real-time dashboards
-* Role-based admin creation
+* Real-time analytics updates
+* Advanced AI model integration
+* Email notification system
 
 ---
 
 ## 👩‍💻 Author
 
 **Poorvaja S**
-🎓 MCA Graduate
-💻 Full Stack Developer
+MCA Student | Aspiring Full Stack Developer
 
 ---
-
-## ⭐ Final Note
-
-This project demonstrates real-world full-stack development with:
-
-* Frontend + Backend integration
-* API development
-* Authentication & security
-* Cloud deployment
-
----
-
-⭐ If you like this project, give it a star!
