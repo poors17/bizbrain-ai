@@ -1,9 +1,13 @@
 import axios from "axios";
 
-const API_URL = "https://bizbrain-ai-production.up.railway.app/api/data";
+/* ✅ UPDATED BASE URL */
+const BASE_URL = "https://bizbrain-ai.onrender.com";
+
+/* ✅ DATA API */
+const API_URL = `${BASE_URL}/api/data`;
 
 export const uploadBusinessData = async (file) => {
-  // 🔥 Get token from user object
+  // 🔥 Get token from localStorage
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const token = storedUser?.token;
 

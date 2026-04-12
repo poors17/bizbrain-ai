@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { FaCloudUploadAlt, FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
-
+import { uploadBusinessData } from "../services/dataService";
 const UploadDataPage = () => {
 
   const [progress, setProgress] = useState(0);
@@ -18,24 +18,39 @@ const UploadDataPage = () => {
     });
   };
 
-  const simulateUpload = () => {
+  const simulateUpload = async () => {
+    if (!fileName) {
+      alert("Please select a file first");
+      return;
+    }
+  
     setProgress(0);
     setUploaded(false);
-
+  
     let value = 0;
-
+  
     const interval = setInterval(() => {
       value += 10;
       setProgress(value);
-
+  
       if (value >= 100) {
         clearInterval(interval);
-        setUploaded(true);
       }
-
     }, 250);
+  
+    try {
+      const fileInput = document.getElementById("fileUpload");
+      const file = fileInput.files[0];
+  
+      await uploadBusinessData(file); // ✅ REAL API CALL
+  
+      setUploaded(true);
+  
+    } catch (error) {
+      console.error("Upload failed:", error);
+      alert("Upload failed");
+    }
   };
-
   return (
     <Layout>
 

@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const API = "https://bizbrain-ai-production.up.railway.app/api/admin";
+/* ✅ UPDATED BASE URL (Render) */
+const BASE_URL = "https://bizbrain-ai.onrender.com";
+
+/* ✅ ADMIN API */
+const API = `${BASE_URL}/api/admin`;
 
 const getToken = () => {
   const user = JSON.parse(localStorage.getItem("user"));
